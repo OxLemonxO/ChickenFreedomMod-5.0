@@ -18,7 +18,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 
 public class RankManager extends FreedomService
 {
-
+   
     public RankManager(TotalFreedomMod plugin)
     {
         super(plugin);
@@ -33,6 +33,10 @@ public class RankManager extends FreedomService
     protected void onStop()
     {
     }
+     public static String format (String string)
+     {
+       return ChatColor.translateAlternateColorCodes('&', string);
+     }
 
     public RankBase getDisplay(CommandSender sender)
     {
@@ -113,11 +117,6 @@ public class RankManager extends FreedomService
         return player.isOp() ? Rank.OP : Rank.NON_OP;
     }
 
-     public static String format (String string) {
-       return ChatColor.translateAlternateColorCodes('&', string);
-    }
-
-
     @EventHandler(priority = EventPriority.MONITOR)
     public void onPlayerJoin(PlayerJoinEvent event)
     {
@@ -166,7 +165,6 @@ public class RankManager extends FreedomService
                 Admin admin = plugin.al.getAdmin(player);
                 if (admin.hasLoginMessage())
                 {
-                
                     loginMsg = format(admin.getLoginMessage());
                 }
             }
