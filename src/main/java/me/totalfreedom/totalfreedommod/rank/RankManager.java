@@ -113,6 +113,11 @@ public class RankManager extends FreedomService
         return player.isOp() ? Rank.OP : Rank.NON_OP;
     }
 
+     public static String format (String string) {
+       return ChatColor.translateAlternateColorCodes('&', string);
+    }
+
+
     @EventHandler(priority = EventPriority.MONITOR)
     public void onPlayerJoin(PlayerJoinEvent event)
     {
@@ -161,7 +166,8 @@ public class RankManager extends FreedomService
                 Admin admin = plugin.al.getAdmin(player);
                 if (admin.hasLoginMessage())
                 {
-                    loginMsg = admin.getLoginMessage();
+                
+                    loginMsg = format(admin.getLoginMessage());
                 }
             }
 
