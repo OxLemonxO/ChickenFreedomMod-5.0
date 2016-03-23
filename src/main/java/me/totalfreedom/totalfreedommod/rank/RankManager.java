@@ -33,6 +33,7 @@ public class RankManager extends FreedomService
     protected void onStop()
     {
     }
+    
      public static String format (String string)
      {
        return ChatColor.translateAlternateColorCodes('&', string);
